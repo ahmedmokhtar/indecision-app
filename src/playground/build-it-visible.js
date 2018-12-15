@@ -1,27 +1,35 @@
 // babel src/playground/build-it-visible.js --out-file=public/scripts/app.js --presets=env,react --watch
 
-const appRoot = document.getElementById('app');
-let isHidden = true;
+class VisibilityToggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleToggleVisibility = this.handleToggleVisibility.bind(this);
+    this.state = {
+      visible: false
+    }
+  }
 
-const onShowDetails = () => {
-  isHidden = !isHidden;
-  render();
-};
+  handleToggleVisibility() {
+    this.setState((prevState) => {
+      return {
+        visible: !prevState.visible
+      }
+    });
+  }
 
-const render = () => {
-  const template = (
-    <div>
-      <h1>Visibility Toggle</h1>
-      <button onClick={onShowDetails}>{isHidden ? 'Show details' : 'Hide details'}</button>
-      {!isHidden && (
-        <div>
-          <p>Hey. These are some details you can now see!</p>
-        </div>
-      )}
-    </div>
-  );
+  render() {
+    return (
+      <div>
+        <h1>Visibility Toggle</h1>
+        <button onClick={this.handleToggleVisibility}>{this.state.visible ? 'Hide details' : 'Show details'}</button>
+        {this.state.visible && (
+          <div>
+            <p>Hey. These are some details you can now see!</p>
+          </div>
+        )}
+      </div>
+    );
+  }
+}
 
-  ReactDOM.render(template, appRoot);
-};
-
-render();
+ReactDOM.render(<VisibilityToggle />, document.getElementById('app'));
