@@ -34,7 +34,8 @@ class IndecisionApp extends React.Component {
     } else {
       this.setState((prevState) => {
         return {
-          options: prevState.options.concat(option)
+          // options: prevState.options.concat(option)
+          options: [...prevState.options, option]
         };
       });
     }
