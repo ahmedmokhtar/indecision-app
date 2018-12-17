@@ -24,8 +24,6 @@ class IndecisionApp extends React.Component {
     } catch (error) {
       console.log('Error retrieving JSON from storge!')
     }
-
-
   }
 
   componentDidUpdate(prevProps, prevState) {
