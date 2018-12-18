@@ -1,15 +1,12 @@
 import React from 'react';
 
 export default class AddOption extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleAddOption = this.handleAddOption.bind(this);
-    this.state = {
-      error: undefined
-    };
-  }
+  // Using class properties for state and handleAddOption()
+  state = {
+    error: undefined
+  };
 
-  handleAddOption(e) {    
+  handleAddOption = (e) => {        
     e.preventDefault();
     // e.persist();      // This is used to be able to see the real event object in the console.
     const option = e.target.elements.option.value.trim();
