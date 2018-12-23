@@ -10,7 +10,5 @@
   font-weight: 500;
   font-size: 2rem;
   margin: 0;
-  overflow-wrap: break-word; 
-  width: 80%;
-  word-wrap: break-word; 
+  word-break: break-all;
 }
